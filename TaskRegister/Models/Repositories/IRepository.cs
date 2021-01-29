@@ -10,7 +10,7 @@ namespace TaskRegister.Models.Repositories
     {
         IList<TEntity> List();
         TEntity Find(int id);
-        void Add(TEntity entity);
+        void Add(TEntity entity , int id );
         //void Update(int id, TEntity entity);
         // void Delete(int id);
         // List<TEntity> Search(string term);

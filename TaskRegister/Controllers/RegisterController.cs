@@ -42,13 +42,15 @@ namespace TaskRegister.Controllers
         // POST: RegisterController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(User model , int id)
+        public ActionResult Create(User model , int id )
         {
+            
             if (ModelState.IsValid)
             {
                 try
                 {
-                    repository.Add(model);
+                    
+                    repository.Add(model ,1);
                     var newlyCreatedId = model.user_ID;
                     return RedirectToAction(nameof(Details), new { id = newlyCreatedId });
                 }

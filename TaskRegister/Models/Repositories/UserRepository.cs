@@ -5,22 +5,22 @@ using System.Threading.Tasks;
 
 namespace TaskRegister.Models.Repositories
 {
-    public class IUserRepository : IRepository<User>
+    public class UserRepository : IRepository<User>
     {
         IList<User> users;
-        public IUserRepository()
+        public UserRepository()
         {
             users = new List<User>();
         }
-        public void Add(User entity)
-        { 
+        public void Add(User entity , int id)
+        {
+            entity.user_ID = id + 1;
             users.Add(entity);
         }
 
         public User Find(int id)
         {
-            var user = users.SingleOrDefault(a => a.user_ID == id);
-
+            var user = users.Where(a => a.user_ID == id).First();
             return user;
         }
 

@@ -26,7 +26,7 @@ namespace TaskRegister
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(option => option.EnableEndpointRouting = false);
-            services.AddSingleton<IRepository<User>, IUserRepository>();
+            services.AddSingleton<IRepository<User>, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

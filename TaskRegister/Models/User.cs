@@ -8,12 +8,12 @@ namespace TaskRegister.Models
 {
     public class User
     {
-        public readonly int? user_ID = 1;
+        public int user_ID { get; set; }
         [Display(Name = "Name")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Name ist Erfolgreich")]
+        [Required]
         public string name { get; set; }
         [Display(Name = "Email")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Email ist Erfolgreich")]
+        [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Display(Name = "Geburtsdatum")]
@@ -24,13 +24,13 @@ namespace TaskRegister.Models
         public DateTime Geburtsdatum { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Password ist Erfolgreich")]
         [DataType(DataType.Password)]
-        [RegularExpression(@".*([@$!%*#?&]{2,})", ErrorMessage = "Bitte Mindest Zwei ziffer")]
+        [RegularExpression(@".*([@$!%*#?&]{2,}.*)", ErrorMessage = "Bitte Mindest Zwei ziffer")]
         [MinLength(8, ErrorMessage = "Mindesten 8 Zeichen mit mindesten Zwei Ziffern bitte in password")]
         public string Password { get; set; }
         [Display(Name = "Confrim Password")]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Confirm password muss abstimmen")]
         public string ConfirmPassword { get; set; }
-        public string LoginErrorMessage { get; set; }
+       
     }
 }
